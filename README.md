@@ -2,10 +2,19 @@
 This is my post-mortem for the 2018 js13kGames competition, where participants are challenged to create a game with web technologies in just 13 kb. This is my first game jam and first post-mortem, so I apologize if it’s bad. This year’s theme was “offline”.
 
 # Inspiration
-I’d say this was the second most difficult task of the whole project. I wanted a unique visual style for my game. I told myself before the theme was even announced that I wasn’t going to make my game with the pixelated art style that you usually see in game jams. Not that there's anything wrong with it, I just wanted to do something different. I also knew that I wanted it to be a puzzle game.
-A couple months earlier, I can across a game on codepen called “Copycat”. The game used a simple but brilliant mechanic and this is ultimately where the mechanic in my game would originate from.
+I’d say this was the second most difficult task of the whole project. I wanted a unique visual style for my game. I told myself before the theme was even announced that I wasn’t going to make my game with the pixelated art style that you usually see in game jams. Not that there's anything wrong with it, I just wanted to do something different. I also knew that I wanted it to be a puzzle game. A couple months earlier, I can across a game on Codepen called “Copycat”. The game used a simple but brilliant mechanic and this is ultimately where the mechanic in my game would originate from.
+
+*screenshot from Copycat and a link to the game on Codepen*
+
+https://codepen.io/Gthibaud/full/ryQRYP
+
+![copycat img](https://firebasestorage.googleapis.com/v0/b/web-demo-2188e.appspot.com/o/copycat.png?alt=media&token=7b956aad-48c7-4f43-85d2-9846fb6cb5a9)
 
 I decided on the hand drawn sketched style after recalling my playthrough of the iOS and Android game “Florence” which I absolutely adore. It’s not so much a game as it is an interactive graphic novel but the art is gorgeous.
+
+*screenshot of the art from Florence*
+
+![florence img](https://firebasestorage.googleapis.com/v0/b/web-demo-2188e.appspot.com/o/florence.png?alt=media&token=ba35f3bd-ddd0-47d9-9a30-6a4c8d6a022a)
 
 I wanted my game to resemble this style but had no idea how I was going to achieve this with HTML, CSS and JavaScript. Until I remembered a JavaScript library I came across, also a few months prior, called Rough JS.
 
@@ -15,7 +24,18 @@ With my game type, mechanic and art style decided, I began thinking about how I 
 # Implementation
 First order of business was creating the art assets. Rough JS supports SVG which was perfect because I could make the assets myself in Adobe Illustrator and then export the code instead of hand coding the path strings. For those that aren’t aware, Illustrator has an awesome feature to export the SVG code for vector images you make. Here is an example of what the phone assets looked like in Illustrator before they were transformed into the hand-sketched look.
 
-I repeated this process for all of the assets. Lucy/Levi, Wi-Fi signals, hearts and message bubbles. I could then simply pass the exported strings to the Rough JS path function and it would transform it into the desired look. 
+*Adobe Illustrator's "show code" feature*
+
+![illustrator img](https://firebasestorage.googleapis.com/v0/b/web-demo-2188e.appspot.com/o/illustrator%20(1).png?alt=media&token=e39dd32c-8b44-45c9-8dde-4166f9df2c19)
+
+I repeated this process for all of the assets. Lucy/Levi, Wi-Fi signals, hearts and message bubbles. I could then simply pass the exported strings to the Rough JS path function and it would transform it into the desired look.
+
+```js
+var drawing = rough.path('M82.71,84.94c-.64.12-1.1,0-1.26-.76....', { 
+  roughness: 0.8,
+  fill: '#f39c12'
+});
+```
 
 # Challenges
 One major challenge of using SVG was that the output strings exported from Illustrator were massive. The strings for the characters Lucy and Levi were about 3-4 kb each! Same with the phones. Though, I was able to avoid having to use the string for the phones twice by creating a Phone class. Thankfully, the string for the hearts ended up being relatively small. But the large strings ended up being very limiting and kept me from adding a lot more details and stuff to the game. This is also why the game is so short, with only 3 levels.
