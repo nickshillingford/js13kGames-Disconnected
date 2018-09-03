@@ -45,5 +45,5 @@ Another challenge (that ended up not mattering because I ran out of byte room) w
 And the biggest challenge of all, that I’d say took about 90% of the entire development time, was learning the entire 98 kb Rough JS library so that I could cut out the parts I didn’t need and optimize the ones I did need in order for the whole thing to fit in 13 kb. I was able to bring it down to 24 kb (9 kb when minified), which brought my entire game to 12.4 kb when compressed. I was determined to use Rough JS. If I wasn’t able to make it work, I probably wouldn’t have submitted a game this year.
 
 # Conclusion
-I’m glad it all worked out in the end because I had a lot of fun making it. Thanks for reading and I hope you get some enjoyment out of the game.
+I’m glad it all worked out in the end because I had a lot of fun making it. Thanks for reading and I hope you get some enjoyment out of the game. You can play it here: http://js13kgames.com/entries/disconnected
 
